@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script src ="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <style type="text/css">
+        .centerdiv {
+            width:45%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .login {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 45%;
+        }
+        .blog{
+            margin-top: 0px;
+            width: 45%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+    </style>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a class="navbar-brand" href="#">Home</a></li>
+            <li><a class="navbar-brand" href="/admin/">Admin login</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-brand" href="#">Cart <b>{{ cart_items }}</b></a></li>
+            <li><a class="navbar-brand" href="/cart/checkout">Checkout</a></li>
+        </ul>
+    </nav>
+    <br/>
+    <br/>
+    <div class="page-header" style="text-align: center">
+        <h2>Storename</h2>
+    </div>
+    <div class="row">
+        {% for product in store_items %}
+            <div class ="col-md-4 well" style="text-align: center">
+                <b>{{ product.name }}</b>
+                <br/>
+                <b>{{ product.description }}</b>
+                <br/>
+                <img src="{{ product.imglink }}" style="max-width:200px;"/>
+                <br/>
+                <span class="label label-primary">{{ product.price }}</span>
+                <br/>
+                <br/>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Add to cart!" class="btn btn-success"/>
+                    <input type="hidden" name="obj_id" value="{{ product.id }}" />
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
