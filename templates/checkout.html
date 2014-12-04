@@ -34,7 +34,7 @@
     <div class="container centerdiv">
         <h3>Total price: <br><br> <span class="label label-success">{{ total_price }}</span></h3>
         <div class="well">
-            <form method="POST" action="/complete/" class="centerdiv">
+            <form method="POST" action="/cart/checkout/complete/" class="centerdiv">
                 {% csrf_token %}
                 <h4>Billing information</h4>
                 <b>First name:</b>
@@ -51,12 +51,12 @@
                 <h4>Payment information</h4>
                 <b>Payment type:</b>
                 <br>
-                <input type="radio" name="payment" value="paypal">Paypal
-                <input type="radio" name="payment" value="cdc">CDC
+                <input type="radio" name="payment_method" value="paypal">Paypal
+                <input type="radio" name="payment_method" value="cdc">CDC
                 <br>
                 <b>Payment Email CC number</b>
                 <input type="text" class="form-control" name="payment_data">
-                <input type="text" class="btn btn-success" value="complete order">
+                <input type="submit" class="btn btn-success" value="complete order">
             </form>
         </div>
     </div>
