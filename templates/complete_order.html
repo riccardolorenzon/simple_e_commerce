@@ -31,32 +31,11 @@
             text-align: center;
         }
     </style>
-    <div class="container well centerdiv">
-        <div>
-            <h3>Total price: <br><br><span class="label label-success">
-                {{ total_price }}</span></h3>
-            </span></h3>
-            <br/>
-            {% for item in cart_items %}
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object imgscale" src = {{ item.imglink }} />
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">{{ item.name }}</h4>
-                    {{ item.description }}
-                    <span class="badge pull-right" >{{ item.price }}</span>
-                </div>
-                <form method="POST" action="remove/">
-                    {% csrf_token %}
-                    <input type="hidden" name = "obj_id" value="{{ item.id }}" />
-                    <input type="submit" value="Remove" class="btn btn-danger pull-right"/>
-                </form>
-            {% endfor %}
-        </div>
+    <div class="jumbotron centerdiv">
+        <h2>Order complete!</h2>
+        <button class="btn btn-success btn-lg" onclick="window.location='/';">
+            Return to the main store page </button>
 
     </div>
-
 </body>
 </html>

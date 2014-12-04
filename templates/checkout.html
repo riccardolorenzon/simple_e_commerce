@@ -1,0 +1,64 @@
+<html>
+<head>
+    <script src ="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <style type="text/css">
+    </style>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a class="navbar-brand" href="/">Home</a></li>
+            <li><a class="navbar-brand" href="/admin/">Admin login</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-brand" href="/cart/">Cart <b>{{ cart_size}}</b></a></li>
+            <li><a class="navbar-brand" href="/cart/checkout">Checkout</a></li>
+        </ul>
+    </nav>
+    <br/>
+    <br/>
+    <div class="page-header" style="text-align: center">
+        <h2>Storename</h2>
+    </div>
+    <style type="text/css">
+        .centerdiv
+        {
+            width:45%;
+            margin-left:auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    </style>
+    <div class="container centerdiv">
+        <h3>Total price: <br><br> <span class="label label-success">{{ total_price }}</span></h3>
+        <div class="well">
+            <form method="POST" action="/complete/" class="centerdiv">
+                {% csrf_token %}
+                <h4>Billing information</h4>
+                <b>First name:</b>
+                <input type="text" name="first_name" class="form-control"/>
+                <br>
+                <b>Last name:</b>
+                <input type="text" name="last_name" class="form-control"/>
+                <br>
+                <b>Address:</b>
+                <input type="text" name="address" class="form-control"/>
+                <br>
+                <b>City:</b>
+                <input type="text" name="city" class="form-control"/>
+                <h4>Payment information</h4>
+                <b>Payment type:</b>
+                <br>
+                <input type="radio" name="payment" value="paypal">Paypal
+                <input type="radio" name="payment" value="cdc">CDC
+                <br>
+                <b>Payment Email CC number</b>
+                <input type="text" class="form-control" name="payment_data">
+                <input type="text" class="btn btn-success" value="complete order">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
