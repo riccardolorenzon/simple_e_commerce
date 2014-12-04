@@ -9,7 +9,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.catalog, name ="catalog"),
     url(r'^cart/$', views.cart, name ="cart"),
-    url(r'^cart/remove$', views.cart, name ="cart"),
-
-
+    url(r'^cart/remove$', views.removefromcart)
 )

@@ -34,6 +34,7 @@ def cart(request):
            'total_price' : priceCart(cart)}
     return render(request, "cart.html", ctx)
 
+#removefromcart
 def removefromcart(request):
     request.session.set_expiry(0)
     obj_to_remove = int(request.POST['obj_id'])
