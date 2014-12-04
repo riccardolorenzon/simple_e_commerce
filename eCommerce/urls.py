@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from ecommerce import views
 
+#url
 urlpatterns = patterns('',
     url(r'^$', views.catalog, name ="catalog"),
     url(r'^cart/$', views.cart, name ="cart"),
