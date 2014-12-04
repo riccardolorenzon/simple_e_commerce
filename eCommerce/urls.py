@@ -8,5 +8,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'simpleECommerce.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.catalog, name ="catalog"),
+    url(r'^cart/$', views.cart, name ="cart"),
+    url(r'^cart/remove$', views.cart, name ="cart"),
+
 
 )
